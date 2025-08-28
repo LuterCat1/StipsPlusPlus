@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="com.stipsapp" version="1.4.62" xmlns="http://www.w3.org/ns/widgets"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="SocialSharing">
+        <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    </feature>
+    <name>Stips</name>
+    <description> Stips.co.il official app </description>
+    <author email="stipsapp@gmail.com" href="https://stips.co.il"> Stips Team </author>
+    <content src="index.cordova.html" />
+    <access origin="*" />
+    <access origin="https://stips.co.il" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <icon density="mdpi" src="res/icon/android/mipmap-mdpi/ic_launcher.png" />
+    <icon density="hdpi" src="res/icon/android/mipmap-hdpi/ic_launcher.png" />
+    <icon density="xhdpi" src="res/icon/android/mipmap-xhdpi/ic_launcher.png" />
+    <icon density="xxhdpi" src="res/icon/android/mipmap-xxhdpi/ic_launcher.png" />
+    <icon density="xxxhdpi" src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" />
+    <custom-preference name="android-manifest/application/activity/@android:theme" value="@android:style/Theme.Material.Light.NoActionBar" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
+        <activity android:exported="true" />
+    </edit-config>
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="21" />
+    <preference name="android-targetSdkVersion" value="33" />
+    <preference name="KeepRunning" value="false" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="LoadUrlTimeoutValue" value="70000" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/icon/android/1px.png" />
+    <preference name="FadeSplashScreenDuration" value="2" />
+    <preference name="Orientation" value="portrait" />
+</widget>

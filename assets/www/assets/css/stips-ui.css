@@ -1,0 +1,248 @@
+body, html {
+  background: #F6F6F6 !important; }
+
+.app-content {
+  height: calc(100% - 56px);
+  background: green; }
+
+.app-component {
+  height: 100%; }
+
+.layout, .layout-column, .layout-row {
+  /* box-sizing: border-box; */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex; }
+
+.layout-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+
+.layout-fill {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%; }
+
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+html, body {
+  height: 100%;
+  position: relative; }
+
+body {
+  height: 100%; }
+
+@media only screen and (min-width: 900px) {
+  body.modal-open {
+    overflow: hidden; }
+    body.modal-open .mat-overlay-container {
+      position: absolute;
+      overflow: visible;
+      pointer-events: all; }
+    body.modal-open .mat-dialog-container {
+      padding: 0px;
+      margin: 0 auto;
+      background: red;
+      overflow: visible;
+      position: static;
+      width: 100%; }
+    body.modal-open .mat-overlay-pane {
+      overflow: visible;
+      position: absolute !important;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+      height: 100%;
+      overflow: scroll;
+      top: 0px !important;
+      left: 0px !important;
+      transform: none !important;
+      z-index: 10000; }
+    body.modal-open .mat-overlay-dark-backdrop {
+      background: yellow;
+      opacity: 0.2; } }
+@media only screen and (max-width: 899px) {
+  body.modal-open {
+    overflow: hidden; }
+    body.modal-open .mat-dialog-container {
+      padding: 0px;
+      background: transparent;
+      box-shadow: none; }
+    body.modal-open .mat-overlay-pane {
+      top: 0px !important;
+      transform: none !important;
+      left: 0px !important; }
+    body.modal-open .mat-overlay-dark-backdrop {
+      background: rgba(255, 0, 0, 0); } }
+
+/* modal transition - end */
+/* flex toolbar fix - begin */
+body mat-toolbar mat-toolbar-row, body mat-toolbar mat-toolbar-row > *, body [mat-menu-item] {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
+body mat-toolbar {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  background: red !important;
+  height: 100px;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  body mat-toolbar .toolbar-spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto; }
+
+/* flex toolbar fix - end */
+body, html {
+  background: #F6F6F6 !important; }
+
+.app-content {
+  height: calc(100% - 56px);
+  background: green; }
+
+.app-component {
+  height: 100%; }
+
+.layout, .layout-column, .layout-row {
+  /* box-sizing: border-box; */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex; }
+
+.layout-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+
+.layout-fill {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%; }
+
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+html, body {
+  height: 100%;
+  position: relative; }
+
+body {
+  height: 100%; }
+
+@media only screen and (min-width: 900px) {
+  body.modal-open {
+    overflow: hidden; }
+    body.modal-open .mat-overlay-container {
+      position: absolute;
+      overflow: visible;
+      pointer-events: all; }
+    body.modal-open .mat-dialog-container {
+      padding: 0px;
+      margin: 0 auto;
+      background: red;
+      overflow: visible;
+      position: static;
+      width: 100%; }
+    body.modal-open .mat-overlay-pane {
+      overflow: visible;
+      position: absolute !important;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+      height: 100%;
+      overflow: scroll;
+      top: 0px !important;
+      left: 0px !important;
+      transform: none !important;
+      z-index: 10000; }
+    body.modal-open .mat-overlay-dark-backdrop {
+      background: yellow;
+      opacity: 0.2; } }
+@media only screen and (max-width: 899px) {
+  body.modal-open {
+    overflow: hidden; }
+    body.modal-open .mat-dialog-container {
+      padding: 0px;
+      background: transparent;
+      box-shadow: none; }
+    body.modal-open .mat-overlay-pane {
+      top: 0px !important;
+      transform: none !important;
+      left: 0px !important; }
+    body.modal-open .mat-overlay-dark-backdrop {
+      background: rgba(255, 0, 0, 0); } }
+
+/* modal transition - end */
+/* flex toolbar fix - begin */
+body mat-toolbar mat-toolbar-row, body mat-toolbar mat-toolbar-row > *, body [mat-menu-item] {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
+body mat-toolbar {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  background: red !important;
+  height: 100px;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  body mat-toolbar .toolbar-spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto; }
+
+/* flex toolbar fix - end */
+
+/*# sourceMappingURL=stips-ui.css.map */
