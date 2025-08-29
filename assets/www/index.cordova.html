@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 
@@ -37,14 +36,8 @@
     }
 
     @keyframes rotating {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     .image-loader .rect .dot {
@@ -66,23 +59,13 @@
     }
 
     @keyframes dot_i {
-      0%,
-      100% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(20px) scale(0.8);
-      }
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(20px) scale(0.8); }
     }
 
     @keyframes dot_ii {
-      0%,
-      100% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-20px) scale(0.8);
-      }
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(0.8); }
     }
   </style>
   <!-- WEB_ADS_HEAD_CODE_BEGIN -->
@@ -99,7 +82,6 @@
 
     if(window.performance && typeof window.performance.mark == 'function')
     {window.performance.mark('tbl_ic');}
-
   </script>
   <script async src=//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
   <!-- WEB_ADS_HEAD_CODE_END -->
@@ -112,8 +94,8 @@
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-9645047-1', {'storage':'none', 'clientId': localStorage.getItem('gaClientId')});
-ga('set', 'checkProtocolTask', null);
-ga(function(t){ localStorage.setItem('gaClientId', t.get('clientId')); });;
+    ga('set', 'checkProtocolTask', null);
+    ga(function(t){ localStorage.setItem('gaClientId', t.get('clientId')); });;
   </script>
   
  <link rel="stylesheet" href="styles.63c51782915ba15800ac.css"></head>
@@ -131,26 +113,15 @@ ga(function(t){ localStorage.setItem('gaClientId', t.get('clientId')); });;
   </div>
 
 
-<script type="text/javascript" src="runtime.0e3bb0483cdaca8f32a8.js"></script><script type="text/javascript" src="polyfills.e09a0c4ea22b7ad8482e.js"></script><script type="text/javascript" src="main.45921a68f7563d4eac1c.js"></script>
+<script type="text/javascript" src="runtime.0e3bb0483cdaca8f32a8.js"></script>
+<script type="text/javascript" src="polyfills.e09a0c4ea22b7ad8482e.js"></script>
+<script type="text/javascript" src="main.45921a68f7563d4eac1c.js"></script>
 <!--cordova files begin-->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="assets/cordova/index.js"></script>
 <script type="module">
-  import { enable, disable, setFetchMethod, auto } from 'https://unpkg.com/darkreader@4.9.109/darkreader.mjs';
-
-  // Enable dark mode
-  enable({
-    brightness: 100,
-    contrast: 90,
-    sepia: 10
-  });
-
-  // Optional: auto mode that adapts to system preference
-  // auto({
-  //   brightness: 100,
-  //   contrast: 90,
-  //   sepia: 10
-  // });
+  import { enable } from 'https://unpkg.com/darkreader@4.9.109/darkreader.mjs';
+  enable({ brightness: 100, contrast: 90, sepia: 10 });
 </script>
 <script>
 // Avoid duplicates
@@ -169,11 +140,55 @@ if (!document.getElementById('godModeBtn')) {
     background:#BB86FC;
     color:#121212;
     border:none;
-    border-radius:6px;
+    border-radius:50%;
     cursor:pointer;
     font-size:16px;
   `;
   document.body.appendChild(godBtn);
+
+  // --- Make draggable (desktop + mobile) ---
+  let isDragging = false, offsetX = 0, offsetY = 0;
+
+  function startDrag(e) {
+    isDragging = true;
+    const rect = godBtn.getBoundingClientRect();
+    if (e.type.startsWith("touch")) {
+      offsetX = e.touches[0].clientX - rect.left;
+      offsetY = e.touches[0].clientY - rect.top;
+    } else {
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+    }
+    godBtn.style.transition = "none";
+  }
+
+  function onDrag(e) {
+    if (!isDragging) return;
+    let x, y;
+    if (e.type.startsWith("touch")) {
+      x = e.touches[0].clientX - offsetX;
+      y = e.touches[0].clientY - offsetY;
+    } else {
+      x = e.clientX - offsetX;
+      y = e.clientY - offsetY;
+    }
+    godBtn.style.left = x + "px";
+    godBtn.style.top = y + "px";
+    godBtn.style.right = "auto";
+    godBtn.style.bottom = "auto";
+  }
+
+  function endDrag() {
+    isDragging = false;
+    godBtn.style.transition = "all 0.2s ease";
+  }
+
+  godBtn.addEventListener("mousedown", startDrag);
+  godBtn.addEventListener("touchstart", startDrag);
+  document.addEventListener("mousemove", onDrag);
+  document.addEventListener("touchmove", onDrag);
+  document.addEventListener("mouseup", endDrag);
+  document.addEventListener("touchend", endDrag);
 
   // Modal
   let godModal = document.createElement('div');
@@ -217,23 +232,14 @@ if (!document.getElementById('godModeBtn')) {
   `;
 
   //ng2-webstorage|userservice.appuser_a_token
-function getCookie(name) {
-    const token = localStorage.getItem(name);
-    if (!token) return null;
+  function getCookie(name) {
+      const token = localStorage.getItem(name);
+      if (!token) return null;
+      return token.replace(/^"|"$/g, ""); // clean quotes
+  }
+  const cookieValue = getCookie("ng2-webstorage|userservice.appuser_a_token");
 
-    // Remove quotes if they exist at start and end
-    const cleanToken = token.replace(/^"|"$/g, "");
-    console.log(cleanToken);
-    return cleanToken;
-}
-
-const cookieValue = getCookie("ng2-webstorage|userservice.appuser_a_token");
-
-
-
-
-const iframe = document.createElement('iframe');
-  // Pass the current URL as a parameter to godmode.html
+  const iframe = document.createElement('iframe');
   iframe.src = `godmode.html?url=${encodeURIComponent(currentUrl)}&cookie=${encodeURIComponent(cookieValue)}`;
   iframe.style.cssText = 'width:100%; height:100%; border:none;';
 
@@ -244,7 +250,6 @@ const iframe = document.createElement('iframe');
 
   // Event listeners
   godBtn.addEventListener('click', () => {
-    // Update URL in case it changed
     currentUrl = window.location.href;
     iframe.src = `godmode.html?url=${encodeURIComponent(currentUrl)}&cookie=${encodeURIComponent(cookieValue)}`;
     godModal.style.display = 'flex';
@@ -252,18 +257,13 @@ const iframe = document.createElement('iframe');
   
   closeBtn.addEventListener('click', () => godModal.style.display = 'none');
 
-  // Listen for iframe close message
   window.addEventListener('message', (e) => {
     if (e.data.type === 'closeGodMode') {
       godModal.style.display = 'none';
     }
   });
 }
-
-
 </script>
-
 <!--cordova files end-->
 </body>
-
 </html>
